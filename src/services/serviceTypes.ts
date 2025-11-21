@@ -12,6 +12,14 @@ type ResponseBody = {
   body: Task[];
 };
 
-export type PostTask = (task: Task) => Promise<ResponseBody | Error>;
+export type ResponseBodyOfTask = {
+  statusCode: number;
+  message: string;
+  body: Task;
+};
 
+export type PostTask = (task: Task) => Promise<ResponseBody | Error>;
+export type EditTask = (task :Task) => Promise<ResponseBody | Error>;
+export type DeleteTask = (taskId:string) => Promise<ResponseBody | Error>;
+export type GetTaskById = (taskId:string) => Promise<ResponseBodyOfTask | Error>;
 export default ResponseBody;
